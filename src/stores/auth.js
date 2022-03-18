@@ -9,7 +9,7 @@ export const useAuthStore = defineStore('auth', () => {
   function setToken(newToken) {
     token.value = newToken;
     localStorage.setItem('access_token', newToken);
-    api.defaults.headers.common['Authorization'] = 'Token ' + newToken;
+    api.defaults.headers.common['Authorization'] = 'Bearer ' + newToken;
   }
 
   function clearToken() {
