@@ -1,5 +1,6 @@
 <template>
   <NavbarDashboard />
+
   <slot></slot>
 </template>
 
