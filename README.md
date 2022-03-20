@@ -8,12 +8,14 @@
 - Tailwind (CSS Framework)
 - Axios
 - Vitest (Unit Testing)
+- Vuelidate (Form Validation)
 
 ## Built-in Feature
 
 - Dynamics Layout
 - Authentication (Login & Logout)
 - Pinia Store (Using Vue Composition API)
+- Form Validation
 
 This template should help get you started developing with Vue 3 in Vite.
 
