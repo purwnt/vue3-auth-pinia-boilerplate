@@ -29,6 +29,7 @@ const router = createRouter({
       component: () => import('../views/LoginView.vue'),
       meta: {
         requiresAuth: false,
+        layout: 'AppLayoutDefault',
       },
     },
   ],

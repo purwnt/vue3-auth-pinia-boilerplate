@@ -17,7 +17,7 @@ watch(
       layout.value = markRaw(AppLayoutDefault);
     }
   },
-  { immediate: true }
+  { immediate: false }
 );
 </script>
 
