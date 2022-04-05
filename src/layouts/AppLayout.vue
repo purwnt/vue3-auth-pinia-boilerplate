@@ -1,8 +1,14 @@
 <script setup>
-import AppLayoutDefault from '@/layouts/AppLayoutDefault.vue';
-import { markRaw, watch, ref } from 'vue';
+import { markRaw, watch, shallowRef, ref } from 'vue';
 import { useRoute } from 'vue-router';
+import AppLayoutDefault from '@/layouts/AppLayoutDefault.vue';
+import AppLayoutDashboard from './AppLayoutDashboard.vue';
+import AppLayoutHomepage from './AppLayoutHomepage.vue';
 
+const importedLayouts = shallowRef({
+  AppLayoutDashboard,
+  AppLayoutHomepage,
+});
 const layout = ref();
 const route = useRoute();
 
@@ -10,9 +16,8 @@ watch(
   () => route.meta?.layout,
   async (metaLayout) => {
     try {
-      const component =
-        metaLayout && (await import(/* @vite-ignore */ `./${metaLayout}.vue`));
-      layout.value = markRaw(component?.default || AppLayoutDefault);
+      const component = metaLayout && importedLayouts.value[metaLayout];
+      layout.value = markRaw(component || AppLayoutDefault);
     } catch (e) {
       layout.value = markRaw(AppLayoutDefault);
     }
